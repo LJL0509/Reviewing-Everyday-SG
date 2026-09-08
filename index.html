@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f6f2ea" />
+  <title>拾光 · 日复盘</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="paper-noise" aria-hidden="true"></div>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#top"><span class="brand-seal">拾</span><span><strong>拾光</strong><small>DAILY REFLECTION</small></span></a>
+      <div class="topbar-right"><span class="local-note"><i></i> 仅保存在此设备</span><button class="outline-button" id="reminderOpen" type="button"><span class="bell">◔</span> 每日提醒</button></div>
+    </header>
+
+    <main id="top">
+      <section class="intro">
+        <div><p class="kicker">A SMALL PRACTICE, A CLEARER SELF</p><h1>今天，<em>留下些什么？</em></h1><p class="intro-copy">选一件事，把你的心路写下来。日子会过去，但你从中长出的判断力会留下。</p></div>
+        <div class="date-orbit"><span class="orbit-label">TODAY</span><strong id="todayDay">--</strong><span id="todayMonth">----</span></div>
+      </section>
+
+      <div class="content-grid">
+        <section class="editor">
+          <div class="editor-head"><div><span class="eyebrow-number">01</span><h2>选择一天</h2></div><div class="date-actions"><button class="new-entry" id="newEntry" type="button">＋ 写另一件事</button><label class="date-picker"><span>日期</span><input type="date" id="entryDate" /></label></div></div>
+          <div class="section-block"><div class="section-title"><span class="eyebrow-number">02</span><div><h2>最值得记录的事</h2><p>不必宏大。一个让你停顿、选择或改变想法的瞬间就够了。</p></div></div><label class="writing-field"><span>发生了什么？ <small>必填</small></span><textarea id="event" rows="3" placeholder="今天哪件事，值得被你好好看见？"></textarea></label></div>
+
+          <div class="section-block"><div class="section-title"><span class="eyebrow-number">03</span><div><h2>我是怎么处理的</h2><p>先看清自己怀着什么信念与态度，再回看方法、角度和过程。</p></div></div><div class="two-col"><label class="writing-field"><span>怀着的信念与态度 <small>我想要什么</small></span><textarea id="mindset" placeholder="我真正想要什么？因此，我决定怀着怎样坚定而清晰的态度去做？"></textarea></label><label class="writing-field"><span>使用的方法 <small>行动与策略</small></span><textarea id="method" placeholder="在这个信念之上，我具体做了什么？用了什么方法？"></textarea></label><label class="writing-field"><span>站在哪个角度 <small>换位思考</small></span><textarea id="angle" placeholder="如果站在对方的位置，会怎么看？"></textarea></label><label class="writing-field"><span>心路历程 <small>念头如何变化</small></span><textarea id="journey" placeholder="我的想法在哪个瞬间发生了变化？"></textarea></label></div></div>
+
+          <div class="section-block"><div class="section-title"><span class="eyebrow-number">04</span><div><h2>我当时为什么这样想</h2><p>允许自己诚实地回看：是什么信念在替你做决定？</p></div></div><label class="writing-field"><textarea id="thinking" rows="4" placeholder="我做这个选择，是因为……"></textarea></label></div>
+
+          <div class="section-block last"><div class="section-title"><span class="eyebrow-number">05</span><div><h2>这件事教会我的</h2><p>把经验变成下一次可以带走的提醒。</p></div></div><label class="writing-field"><textarea id="lesson" rows="4" placeholder="下一次遇到类似的事，我想记得……"></textarea></label><div class="tag-area"><div><span class="tag-heading">给这条经验一个品质标签</span><p>标签会帮你看见，自己正在练习成为什么样的人。</p></div><div class="tags" id="tags"><button type="button" data-tag="勇气">勇气</button><button type="button" data-tag="理性">理性</button><button type="button" data-tag="纯粹">纯粹</button><button type="button" data-tag="兴趣">兴趣</button><button type="button" data-tag="情商">情商</button><button type="button" data-tag="专注自我">专注自我</button></div></div></div>
+          <div class="save-row"><span id="saveHint">所有内容会自动保存在本机</span><button class="save-button" id="saveEntry" type="button">收好今天 <b>→</b></button></div>
+        </section>
+
+        <aside class="sidebar">
+          <section class="archive"><div class="side-head"><h3>回看足迹</h3><span id="entryCount">0 篇</span></div><div class="calendar"><div class="calendar-head"><button id="prevMonth" type="button" aria-label="上个月">‹</button><strong id="calendarMonth"></strong><button id="nextMonth" type="button" aria-label="下个月">›</button></div><div class="calendar-week"><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span></div><div class="calendar-days" id="calendarDays"></div></div><div class="archive-tools"><input id="search" type="search" placeholder="搜索记录" /><span>⌕</span></div><div class="filter-row" id="filterRow"><button class="filter-chip active" data-filter-tag="全部">全部</button><button class="filter-chip" data-filter-tag="勇气">勇气</button><button class="filter-chip" data-filter-tag="理性">理性</button><button class="filter-chip" data-filter-tag="纯粹">纯粹</button><button class="filter-chip" data-filter-tag="兴趣">兴趣</button><button class="filter-chip" data-filter-tag="情商">情商</button><button class="filter-chip" data-filter-tag="专注自我">专注自我</button><button class="filter-chip" data-filter-tag="暂无标签">暂无标签</button></div><p class="active-filter" id="activeFilter">全部日期</p><div id="history" class="history"><div class="empty"><b>○</b><p>还没有复盘<br><small>今天写下第一篇吧。</small></p></div></div><button id="showAll" class="view-all" type="button">查看全部 <span>↗</span></button></section>
+          <section class="quality"><div class="quality-top"><span>正在养成</span><span id="qualityTotal">0 / 5</span></div><h3 id="qualityTitle">五种品质，慢慢成为你</h3><div id="qualityBars" class="quality-bars"></div><p>每一次回看，都是在给未来的自己留线索。</p></section>
+          <section class="prompt"><span class="quote">“</span><p id="prompt">今天，你有没有做一件让自己更像自己的事？</p><button id="nextPrompt" type="button">换一个问题 ↻</button></section>
+        </aside>
+      </div>
+    </main>
+    <footer><span>拾光 / THE EVERYDAY, KEPT</span><span>写给自己，不为交差</span></footer>
+  </div>
+  <div id="toast" class="toast" role="status"></div>
+  <dialog id="reminderDialog"><div class="dialog-title"><h2>每日提醒</h2><button class="close" id="reminderClose" type="button">×</button></div><p class="dialog-copy">给自己留一个固定的几分钟。提醒只在你打开此页面时检查，不会上传任何数据。</p><label class="switch-line"><span>开启每日提醒</span><input id="reminderEnabled" type="checkbox"><i></i></label><label class="time-line"><span>提醒时间</span><input id="reminderTime" type="time" value="21:30"></label><button id="reminderSave" class="save-button full" type="button">保存提醒设置</button><p id="notifyHint" class="notify-hint"></p></dialog>
+  <dialog id="allDialog"><div class="dialog-title"><h2>全部复盘</h2><button class="close" id="allClose" type="button">×</button></div><div id="allEntries"></div></dialog>
+  <script src="app.js"></script>
+</body>
+</html>
