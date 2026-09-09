@@ -12,8 +12,9 @@
 
 1. 在 GitHub 新建一个仓库，例如 `Reviewing-Everyday`。
 2. 将本目录全部文件推送到仓库的 `main` 分支。
-3. 在仓库的 **Settings → Pages** 中确认 Source 使用 **GitHub Actions**。
-4. 等待 Actions 完成，网址格式为：`https://你的用户名.github.io/Reviewing-Everyday/`。
+3. 在仓库的 **Settings → Pages** 中，将 **Source** 设置为 **GitHub Actions**。这一步必须先完成，否则 `Configure Pages` 会返回 `Not Found`。
+4. 在 **Settings → Actions → General** 中确认允许 Actions 运行，并等待 Actions 完成。
+5. 网址格式为：`https://你的用户名.github.io/Reviewing-Everyday-SG/`。
 
 仓库已包含 `.github/workflows/pages.yml`，推送后会自动部署。之后每次推送到 `main`，网址都会自动更新。
 
