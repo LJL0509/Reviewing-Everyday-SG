@@ -1,3 +1,5 @@
 .DS_Store
 Thumbs.db
 *.log
+*.review-backup.json
+拾光-复盘-*.json
